@@ -27,7 +27,7 @@ let crop = new CropCanvas(canvasObj, {
 
 这里说明调用方法的规范
 
->  analysis() 分析
+>  analysis() 扫描分析
 
 * analysis 方法是对 canvas 画布进行线性扫描的过程
 * 参数1：true | false 可以红色像素填充准备去除的边界（支持链式调用）
