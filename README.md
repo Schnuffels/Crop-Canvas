@@ -31,7 +31,7 @@ let crop = new CropCanvas(canvasObj, {
 
 * analysis 方法是对 canvas 画布进行线性扫描的过程
 * 参数1：true | false 可以红色像素填充准备去除的边界（支持链式调用）
-* 参数2：true | false 开启扫描动画，用户可以观看扫描的效果（不支持链式调用，且无实质效果，无法导出与裁剪，仅播放扫描动画）
+* 参数2：true | false 开启扫描动画，用户可以观看扫描的效果（不支持链式调用，且无实质效果，无法导出与裁切，仅播放扫描动画）
 
 ```javascript
 crop.analysis(/*true*/ /*,true*/)
