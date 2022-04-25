@@ -172,19 +172,12 @@
         }
         // 图片导出为 png 格式
         this.pendingImgData = this.finalCanvas.toDataURL("image/png");
-        this.pendingImgData = this.pendingImgData.replace(this._fixType("png"),'image/octet-stream');
+        this.pendingImgData = this.pendingImgData.replace('image/png','image/octet-stream');
 
-        // download
-        this._saveFile(this.pendingImgData, filename);
+        this.saveFile(this.pendingImgData, filename);
     }
 
-    CropCanvas.prototype._fixType = function(type){
-        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
-        let r = type.match(/png|jpeg|bmp|gif/)[0];
-        return 'image/' + r;
-    }
-
-    CropCanvas.prototype._saveFile = function(data, filename){
+    CropCanvas.prototype.saveFile = function(data, filename){
         let save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
         save_link.href = data;
         save_link.download = filename;
