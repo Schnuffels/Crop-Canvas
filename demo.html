@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Canvas Demo</title>
+</head>
+<body>
+
+    <div class="abc"></div>
+    
+    <script type="text/javascript" src="cropCanvas.js"></script>
+    <script>
+        let canvas1 = createDemoCanvas();
+        createShape(canvas1);
+        createShape(canvas1);
+        createShape(canvas1);
+        document.body.appendChild(canvas1);
+
+
+        setTimeout(() => {
+            // 初始化，参数2全部拥有，可不填
+            let crop = new CropCanvas(canvas1, {
+                scanX: 1,
+                scanY: 1,
+                rgba: '0,0,0,0',
+                edge: 1
+            });
+
+
+            // 初始化裁切白色边距，并将裁切完的图形载入页面
+            crop.analysis(/*true*/).appendTo();
+
+            // 初始化裁切边距并导出图片
+            // crop.analysis(/*true*/).appendTo().export();
+
+            // 动画演示渲染过程
+            // crop.analysis(false, true);
+        }, 1000)
+
+
+        // 创建一个画布
+        function createDemoCanvas(){
+            let demoCanvas = document.createElement('canvas');
+            demoCanvas.width = 500;
+            demoCanvas.height = 300;
+            demoCanvas.style.border = '1px solid #eee';
+
+            return demoCanvas;
+        }
+
+        // 创建随机形状、颜色矩形
+        function createShape(_canvas){
+            let ctx = _canvas.getContext('2d');
+
+            let colorArr = ['blue', 'yellow', 'green', 'cyan', 'brown', 'black', 'purple', 'pink', 'gray', 'orange'];
+            ctx.fillStyle = colorArr[Math.floor(Math.random()*12)];
+
+            let x = Math.round(Math.random() * _canvas.width);
+            let y = Math.round(Math.random() * _canvas.height);
+            let sw = Math.round(Math.random() * _canvas.width - x);
+            let sy = Math.round(Math.random() * _canvas.height - y);
+            ctx.fillRect(x, y, sw, sy)
+
+        }
+    </script>
+</body>
+</html>
