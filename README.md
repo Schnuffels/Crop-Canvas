@@ -43,7 +43,7 @@ crop.analysis(/*true*/ /*,true*/)
 
 ```javascript
 // 请注意 appendTo() 方法不支持单独调用，必须先调用 analysis();
-crop.analysis(/*true*/).appendTo();
+crop.analysis(/*true*/).appendTo(/*#test*/);
 ```
 >  export() 导出裁切后的图片
 
