@@ -1,4 +1,4 @@
-# CorpCanvas
+# CropCanvas
 画布裁切工具，去除周围透明像素点
 
 ## 使用方法
